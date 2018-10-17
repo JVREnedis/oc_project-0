@@ -72,6 +72,7 @@ public class Product {
 	}
 
 	public double getInventoryPrice() {
+
 		return price * quantity;
 	}
 }

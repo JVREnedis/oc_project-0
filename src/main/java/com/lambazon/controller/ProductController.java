@@ -1,14 +1,14 @@
 package com.lambazon.controller;
 
-import javax.inject.Inject;
-
+import com.lambazon.repository.ProductRepository;
+import com.lambazon.service.ProductService;
+import com.lambazon.domain.Product;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.lambazon.domain.Product;
-import com.lambazon.service.ProductService;
+import javax.inject.Inject;
 
 
 @Controller
@@ -31,8 +31,10 @@ public class ProductController {
 	}
 	
 	private double calculateTotalInventoryAmount() {
-		// TODO fix calculation
-		 return 123456.78;
-		
+		double TotalInventoryAmount = 0f;
+		for (Product p : productService.products()){
+			TotalInventoryAmount += p.getInventoryPrice();
+		}
+		 return TotalInventoryAmount;
 	}
 }
