@@ -47,13 +47,16 @@ public class Product {
 		this.details = details;
 	}
 
-	public int getQuantity() {
-		return quantity;
-	}
+	public int getQuantity() { return quantity; }
 
 	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
+        if ( quantity <= 0 ){
+            this.quantity = 0;
+        }else{
+            this.quantity = quantity;
+        }
+    }
+
 
 	public double getPrice() {
 		return price;
